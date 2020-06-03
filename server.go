@@ -2,6 +2,8 @@ package main
 
 import "github.com/gin-gonic/gin"
 
+var port string = ":8080"
+
 func main() {
 	server := gin.Default()
 
@@ -11,5 +13,5 @@ func main() {
 		})
 	})
 
-	server.Run(":8080")
+	server.Run(port)
 }
