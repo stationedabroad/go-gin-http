@@ -16,3 +16,7 @@ type videoService struct {
 func New() VideoService {
 	return &videoService{}
 }
+
+func (service *videoService) FindAll() []entity.Video {
+	return service.videos
+}
