@@ -14,7 +14,10 @@ type videoService struct {
 }
 
 func New() VideoService {
-	return &videoService{}
+	var videos []entity.Video
+	return &videoService{
+		videos: videos,
+	}
 }
 
 func (service *videoService) Save(video entity.Video) entity.Video {
