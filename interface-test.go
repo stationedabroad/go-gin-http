@@ -1,4 +1,4 @@
-package main
+package interface-test
 
 import (
 	"fmt"

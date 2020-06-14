@@ -15,11 +15,11 @@ var (
 func main() {
 	server := gin.Default()
 
-	server.GET("/posts", func(ctx *gin.Context) {
+	server.GET("/videos", func(ctx *gin.Context) {
 		ctx.JSON(200, videoController.FindAll())
 	})
 
-	server.POST("/save", func(ctx *gin.Context) {
+	server.POST("/videos", func(ctx *gin.Context) {
 		ctx.JSON(201, videoController.Save(ctx))
 	})
 
