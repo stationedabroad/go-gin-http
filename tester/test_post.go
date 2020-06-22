@@ -7,12 +7,14 @@ import (
 	"strings"
 )
 
+var (
+	url    string = "http://127.0.0.1:8080/videos"
+	method string = "POST"
+)
+
 func main() {
 
-	url := "http://127.0.0.1:8080/videos"
-	method := "POST"
-
-	payload := strings.NewReader("{\n        \"title\": \"Star Wars: New Hope\",\n        \"desc\": \"Sci-Fi Adventure\",\n        \"url\": \"www.some_url_sw_last_jedi.com\"\n}")
+	payload := strings.NewReader("{\n        \"title\": \"Star Wars: Phantom menace\",\n        \"desc\": \"Sci-Fi Adventure\",\n        \"url\": \"www.some_url_sw_last_jedi.com\"\n}")
 
 	client := &http.Client{}
 	req, err := http.NewRequest(method, url, payload)
