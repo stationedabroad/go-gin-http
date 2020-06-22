@@ -6,10 +6,12 @@ import (
 	"net/http"
 )
 
-func main() {
+var (
+	url    string = "http://127.0.0.1:8080/videos"
+	method string = "GET"
+)
 
-	url := "http://127.0.0.1:8080/videos"
-	method := "GET"
+func main() {
 
 	client := &http.Client{}
 	req, err := http.NewRequest(method, url, nil)
