@@ -11,7 +11,7 @@ import (
 )
 
 var (
-	port            string                     = ":8080"
+	defaultPort            string                     = ":8080"
 	videoService    service.VideoService       = service.New()
 	videoController controller.VideoController = controller.New(videoService)
 )
@@ -36,5 +36,5 @@ func main() {
 		ctx.JSON(201, videoController.Save(ctx))
 	})
 
-	server.Run(port)
+	server.Run(defaultPort)
 }
