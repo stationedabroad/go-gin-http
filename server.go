@@ -2,6 +2,7 @@ package main
 
 import (
 	"io"
+	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -11,7 +12,7 @@ import (
 )
 
 var (
-	defaultPort            string                     = ":8080"
+	defaultPort     string                     = ":8080"
 	videoService    service.VideoService       = service.New()
 	videoController controller.VideoController = controller.New(videoService)
 )
@@ -33,7 +34,12 @@ func main() {
 	})
 
 	server.POST("/videos", func(ctx *gin.Context) {
-		ctx.JSON(201, videoController.Save(ctx))
+		err := videoController.Save(ctx)
+		if err != nil {
+			ctx.JSON(http.StatusBadRequest, gin.H{"error": err.error()})
+		} else {
+			ctx.JSON(http.StatusOk, gin.H{"message": "Valid Request"}
+		}
 	})
 
 	server.Run(defaultPort)
