@@ -36,9 +36,9 @@ func main() {
 	server.POST("/videos", func(ctx *gin.Context) {
 		err := videoController.Save(ctx)
 		if err != nil {
-			ctx.JSON(http.StatusBadRequest, gin.H{"error": err.error()})
+			ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		} else {
-			ctx.JSON(http.StatusOk, gin.H{"message": "Valid Request"}
+			ctx.JSON(http.StatusOK, gin.H{"message": "Valid Request"})
 		}
 	})
 
